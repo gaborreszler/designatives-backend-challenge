@@ -44,6 +44,8 @@ class ServiceController extends Controller
             abort(400, $exception->getMessage());
         }
 
-        return $price;
+        $result = compact('price');
+
+        return response()->json(['message' => 'Success', 'result' => $result]);
     }
 }
