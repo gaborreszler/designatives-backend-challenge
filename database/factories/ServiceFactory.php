@@ -17,7 +17,7 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->unique()->name(),
+            'name' => fake()->unique()->sentence(3),
             'monthlyPrice' => fake()->numberBetween(10, 50),
         ];
     }
