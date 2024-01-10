@@ -46,6 +46,10 @@ class ServiceController extends Controller
 
         $result = compact('price');
 
-        return response()->json(['message' => 'Success', 'result' => $result]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Success',
+            'result' => $result
+        ]);
     }
 }
