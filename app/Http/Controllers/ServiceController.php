@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\DailyPriceCalculator;
 use App\Classes\MonthlyPriceCalculator;
 use App\Http\Requests\GetPriceRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use UnhandledMatchError;
@@ -25,7 +26,7 @@ class ServiceController extends Controller
         return $calculator->calculate(serviceId: $serviceId, startDate: $startDate, endDate: $endDate);
     }
 
-    public function getPrice(GetPriceRequest $request)
+    public function getPrice(GetPriceRequest $request): JsonResponse
     {
         $parameters = $request->validated();
         $serviceId = $parameters['serviceId'];
