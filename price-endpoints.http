@@ -1,0 +1,53 @@
+### For testing valid monthly endpoint response
+
+# curl -X GET -H 'Accept: application/json' -H "Content-type: application/json" -d '{"serviceId": 1, "startDate": "2023-01-12", "endDate": "2023-03-28"}' 'https://designatives-backend-challenge.test/api/v1/monthly'
+GET https://designatives-backend-challenge.test/api/v1/monthly
+Accept: application/json
+Content-Type: application/json
+
+{
+    "serviceId": 1,
+    "startDate": "2023-01-12",
+    "endDate": "2023-03-28"
+}
+
+### For testing valid daily endpoint response
+
+# curl -X GET -H 'Accept: application/json' -H "Content-type: application/json" -d '{"serviceId": 1, "startDate": "2023-01-12", "endDate": "2023-03-28"}' 'https://designatives-backend-challenge.test/api/v1/daily'
+GET https://designatives-backend-challenge.test/api/v1/daily
+Accept: application/json
+Content-Type: application/json
+
+{
+    "serviceId": 1,
+    "startDate": "2023-01-12",
+    "endDate": "2023-03-28"
+}
+
+### For testing multiple validation errors' response
+
+# curl -X GET -H 'Accept: application/json' -H "Content-type: application/json" -d '{"serviceId": 51, "startDate": "Jann 12th 2023"}' 'https://designatives-backend-challenge.test/api/v1/monthly'
+GET https://designatives-backend-challenge.test/api/v1/monthly
+Accept: application/json
+Content-Type: application/json
+
+{
+    "serviceId": 51,
+    "startDate": "Jann 12th 2023"
+}
+
+### For testing findOrFail response but without using model existance check validation.
+
+# curl -X GET -H 'Accept: application/json' -H "Content-type: application/json" -d '{"serviceId": 1, "startDate": "2023-01-12", "endDate": "2023-03-28"}' 'https://designatives-backend-challenge.test/api/v1/monthly'
+GET https://designatives-backend-challenge.test/api/v1/monthly
+Accept: application/json
+Content-Type: application/json
+
+{
+    "serviceId": 51,
+    "startDate": "2023-01-12",
+    "endDate": "2023-03-28"
+}
+
+###
+
